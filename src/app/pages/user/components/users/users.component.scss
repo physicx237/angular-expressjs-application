@@ -1,0 +1,134 @@
+:host {
+  display: block;
+}
+
+.users {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+  height: 100%;
+  padding: 10px 0 10px 10px;
+
+  &__title {
+    font-size: 30px;
+    font-weight: 700;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    list-style-type: none;
+    padding-inline-start: 0;
+    flex: 1;
+
+    &-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 5px;
+      border-radius: 5px;
+      font-size: 25px;
+    }
+  }
+
+  &__user-status-marker {
+    width: 1.5em;
+    height: 1.5em;
+    border-radius: 50%;
+  }
+
+  &__add-user-button {
+    p-button::ng-deep {
+      .p-button {
+        color: black;
+        background: yellow;
+        border: none;
+      }
+    }
+  }
+}
+
+.offline {
+  background-color: red;
+}
+
+.online {
+  background-color: green;
+}
+
+:host {
+  display: block;
+}
+
+.channels {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+  height: 100%;
+  padding: 10px 0 10px 10px;
+
+  &__title {
+    font-size: 30px;
+    font-weight: 700;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    list-style-type: none;
+    padding-inline-start: 0;
+
+    &-item {
+      padding: 10px 5px;
+      border-radius: 5px;
+      background-color: whitesmoke;
+      font-size: 25px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: lightgray;
+      }
+    }
+  }
+
+  &__add-channel-button {
+    p-button::ng-deep {
+      .p-button {
+        color: black;
+        background: yellow;
+        border: none;
+      }
+    }
+  }
+}
+
+p-dialog::ng-deep {
+  .add-channel-member-modal {
+    .p-dialog-content {
+      overflow-y: visible;
+    }
+
+    &__form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    &__input-field {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    &__buttons {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+    }
+  }
+}

@@ -7,7 +7,15 @@
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
-          "style": "scss"
+          "style": "scss",
+          "changeDetection": "OnPush",
+          "type": "component"
+        },
+        "@schematics/angular:directive": {
+          "type": "directive"
+        },
+        "@schematics/angular:service": {
+          "type": "service"
         }
       },
       "root": "",
@@ -26,9 +34,7 @@
                 "input": "public"
               }
             ],
-            "styles": [
-              "src/styles.scss"
-            ]
+            "styles": ["src/styles.scss"]
           },
           "configurations": {
             "production": {
@@ -80,9 +86,7 @@
                 "input": "public"
               }
             ],
-            "styles": [
-              "src/styles.scss"
-            ]
+            "styles": ["src/styles.scss"]
           }
         }
       }

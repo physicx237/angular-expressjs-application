@@ -1,0 +1,65 @@
+:host {
+  display: block;
+  height: 100%;
+}
+
+.chat {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10px;
+  height: 100%;
+  padding: 10px 10px 10px 0;
+
+  &__title {
+    font-weight: 700;
+  }
+
+  &__messages-list {
+    border: 1px solid black;
+    border-radius: 5px;
+    flex: 1;
+    list-style-type: none;
+    overflow-y: auto;
+    padding-inline-start: 0;
+    padding: 10px;
+  }
+
+  &__message-author {
+    font-size: 20px;
+    font-weight: 700;
+  }
+
+  &__input-field {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: sticky;
+  }
+
+  &__message-input {
+    align-self: stretch;
+    flex: 1;
+    border: 1px solid black;
+
+    &:enabled {
+      &:hover,
+      &:focus {
+        border-color: black;
+      }
+    }
+  }
+
+  &__send-message-button::ng-deep {
+    .p-button {
+      color: black;
+      border-color: black;
+
+      &-outlined:not(.disabled):hover {
+        color: black;
+        border-color: black;
+        background: lightgray;
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+@let user = user$ | async;
+
+<div class="info">
+  <div class="info-text">
+    <span class="info__username">{{ user?.username }}</span>
+
+    <span class="info__username-explanation">It's You</span>
+  </div>
+
+  <div class="info__actions-buttons">
+    <div class="info__settings-button">
+      <i class="pi pi-cog"></i>
+
+      <span class="info__settings-button-text">Settings</span>
+    </div>
+
+    <div class="info__log-out-button" (click)="logout()">
+      <i class="pi pi-sign-out"></i>
+
+      <span class="info__settings-button-text">Log Out</span>
+    </div>
+  </div>
+</div>

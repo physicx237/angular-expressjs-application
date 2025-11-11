@@ -1,0 +1,57 @@
+.info {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0 10px 10px;
+
+  &-text {
+    display: flex;
+    flex-direction: column;
+    text-transform: uppercase;
+  }
+
+  &__username {
+    font-size: 30px;
+    line-height: 1;
+    font-weight: 700;
+  }
+
+  &__actions-buttons {
+    display: flex;
+    gap: 20px;
+  }
+
+  &__settings-button,
+  &__log-out-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+
+    & > :first-child {
+      font-size: 30px;
+      cursor: pointer;
+      padding: 10px;
+      border-radius: 50%;
+
+      &:hover {
+        background-color: lightgrey;
+      }
+    }
+
+    &-text {
+      text-transform: uppercase;
+    }
+  }
+
+  .devider {
+    display: flex;
+    justify-content: center;
+    width: 20px;
+
+    &__line {
+      width: 1px;
+      height: 100%;
+      border-left: 1px solid black;
+    }
+  }
+}

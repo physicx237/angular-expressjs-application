@@ -1,0 +1,28 @@
+@let channel = channel$ | async;
+@let messages = messages$ | async;
+
+<div class="chat">
+  <div class="chat__title">#{{ channel?.name }}</div>
+
+  <ul class="chat__messages-list">
+    @for (message of messages; track message?.id) {
+      <li class="chat__messages-list-item">
+        <div class="chat__message-author">{{ message?.fromUser }}</div>
+
+        <div class="chat__message-content">{{ message?.content }}</div>
+      </li>
+    }
+  </ul>
+
+  <div class="chat__input-field">
+    <input #messageInput pInputText type="text" class="chat__message-input" />
+
+    <p-button
+      class="chat__send-message-button"
+      icon="pi pi-arrow-right"
+      [outlined]="true"
+      [disabled]="!messageInput.value"
+      (onClick)="sendMessage(messageInput.value); messageInput.value = ''"
+    />
+  </div>
+</div>

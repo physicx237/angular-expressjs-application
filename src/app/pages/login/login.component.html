@@ -1,0 +1,23 @@
+<div class="login">
+  <div class="login__navigate-to-main-page-button">
+    <p-button label="Navigate To Main Page" (onClick)="navigateToMainPage()" />
+  </div>
+
+  <form class="login__form" [formGroup]="loginForm" (ngSubmit)="login()">
+    <p-floatlabel variant="in">
+      <input pInputText id="username" formControlName="username" />
+
+      <label for="username">Username</label>
+    </p-floatlabel>
+
+    <p-floatlabel variant="in">
+      <input pInputText id="password" formControlName="password" />
+
+      <label for="password">Password</label>
+    </p-floatlabel>
+
+    <p-button type="submit" label="Log In!" />
+  </form>
+</div>
+
+<p-toast />

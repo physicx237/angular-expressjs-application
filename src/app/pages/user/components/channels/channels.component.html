@@ -1,0 +1,32 @@
+@let currentChannel = channel$ | async;
+@let channels = channels$ | async;
+
+<div class="channels">
+  <div class="channels__title">Channels</div>
+
+  <ul class="channels__list">
+    @for (channel of channels; track channel.id) {
+      <li class="channels__list-item" [class.active]="channel.id === currentChannel?.id" (click)="getChannelMembersAndMessages(channel)">#{{ channel.name }}</li>
+    }
+  </ul>
+
+  <div class="channels__add-channel-button">
+    <p-button label="Add channel" icon="pi pi-plus" (onClick)="showAddChannelModal()" />
+  </div>
+</div>
+
+<p-dialog header="New channel" styleClass="add-channel-modal" [modal]="true" [(visible)]="isShowAddChannelModal">
+  <form class="add-channel-modal__form" [formGroup]="channelForm" (ngSubmit)="addChannel()">
+    <div class="add-channel-modal__input-field">
+      <span class="add-channel-modal__input-field-text">Name</span>
+
+      <input pInputText formControlName="channelName" />
+    </div>
+
+    <div class="add-channel-modal__buttons">
+      <p-button label="Cancel" severity="secondary" (click)="hideAddChannelModal()" />
+
+      <p-button type="submit" label="Save" />
+    </div>
+  </form>
+</p-dialog>

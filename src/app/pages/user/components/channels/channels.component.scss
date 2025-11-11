@@ -1,0 +1,74 @@
+:host {
+  display: block;
+}
+
+.channels {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+  height: 100%;
+  padding: 10px 0 10px 10px;
+
+  &__title {
+    font-size: 30px;
+    font-weight: 700;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    list-style-type: none;
+    padding-inline-start: 0;
+
+    &-item {
+      padding: 10px 5px;
+      border-radius: 5px;
+      background-color: whitesmoke;
+      font-size: 25px;
+      cursor: pointer;
+
+      &:hover {
+        border: 1px solid black;
+      }
+    }
+  }
+
+  &__add-channel-button {
+    p-button::ng-deep {
+      .p-button {
+        color: black;
+        background: yellow;
+        border: none;
+      }
+    }
+  }
+}
+
+p-dialog::ng-deep {
+  .add-channel-modal {
+    &__form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    &__input-field {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    &__buttons {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+    }
+  }
+}
+
+.active {
+  background-color: lightgray;
+}

@@ -1,0 +1,61 @@
+@let channelMembers = channelMembers$ | async;
+@let users = users$ | async;
+
+<div class="users">
+  <div class="users__title">Users</div>
+
+  <ul class="users__list">
+    @for (user of channelMembers; track user.id) {
+      <li class="users__list-item">
+        <div
+          class="users__user-status-marker"
+          [class.offline]="!user.isOnline"
+          [class.online]="user.isOnline"
+        ></div>
+
+        <span>{{ user.username }}</span>
+      </li>
+    }
+  </ul>
+
+  <div class="users__add-user-button">
+    <p-button
+      label="Add user"
+      icon="pi pi-plus"
+      [disabled]="!channelMembers?.length"
+      (onClick)="showAddChannelMemberModal()"
+    />
+  </div>
+</div>
+
+<p-dialog
+  header="New channel"
+  styleClass="add-channel-member-modal"
+  [modal]="true"
+  [resizable]="false"
+  [(visible)]="isShowAddChannelMemberModal"
+>
+  <form
+    class="add-channel-member-modal__form"
+    [formGroup]="userForm"
+    (ngSubmit)="addChannelMember()"
+  >
+    <div class="add-channel-member-modal__input-field">
+      <span class="add-channel-member-modal__input-field-text">Name</span>
+
+      <p-select
+        formControlName="userId"
+        optionLabel="username"
+        optionValue="id"
+        [options]="users"
+        [showClear]="true"
+      />
+    </div>
+
+    <div class="add-channel-member-modal__buttons">
+      <p-button label="Cancel" severity="secondary" (click)="hideAddChannelMemberModal()" />
+
+      <p-button type="submit" label="Save" />
+    </div>
+  </form>
+</p-dialog>
